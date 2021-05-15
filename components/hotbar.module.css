@@ -1,0 +1,69 @@
+.hotbar {
+	position: fixed;
+	bottom: 1rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+	background: black;
+	border-radius: 1000px;
+	box-shadow: 0 0 2rem rgba(0,0,0,0.33);
+	min-width: 8rem;
+	min-height: 2.8rem;
+	padding: 0.21em;
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.hotbar > * {
+	margin-left: 0.6em;
+}
+.hotbar > *:first-child {
+	margin-left: 0;
+}
+
+.button {
+	position: relative;
+	border-radius: 1000px;
+	width: 2.8rem;
+	height: 2.8rem;
+	padding: 0.6em;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	display: flex;
+  cursor: pointer;
+	color: #aaa;
+}
+
+.button:hover {
+  background: #111111;
+}
+
+.active {
+  color: #34E2B8;
+}
+
+.primary:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: block;
+	content: '';
+	border-radius: inherit;
+	border: 3px solid transparent;
+	background: linear-gradient(-45deg, #34E2B8, #9E20D9) border-box;
+	/*clip-path: circle(60px at center);*/
+	mask:
+		linear-gradient(#fff 0 0) padding-box,
+		linear-gradient(#fff 0 0);
+	mask-composite: exclude;
+}
+
+.button > * {
+  font-size: 2em;
+}
+
+.button.primary > * {
+  background: linear-gradient(-45deg, #34E2B8, #9E20D9) border-box;
+}
