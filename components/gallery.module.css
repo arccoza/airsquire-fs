@@ -1,0 +1,24 @@
+.gallery {
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	width: 100vw;
+	height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.gallery > * {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.24rem;
+  border-radius: 0.24rem;
+  overflow: hidden;
+}
+
+.gallery > *:first-child {
+  margin-left: 0;
+}
