@@ -20,7 +20,7 @@ export function Button({ primary='', onClick, children }) {
 }
 
 export function UploadButton({ primary='', accept="*/*", files, children }) {
-  const [tapped, setTapped] = useState('');
+  const [tapped, setTapped] = useState('')
   const inputRef = React.createRef()
 
   const handleFiles = ({ currentTarget: { files } }) => {
