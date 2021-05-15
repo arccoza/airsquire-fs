@@ -36,9 +36,10 @@
 
 .button:hover {
   background: #111111;
+  color: #34E2B8;
 }
 
-.active {
+.button.toggled {
   color: #34E2B8;
 }
 
@@ -66,4 +67,15 @@
 
 .button.primary > * {
   background: linear-gradient(-45deg, #34E2B8, #9E20D9) border-box;
+}
+
+.button.primary.tapped {
+  animation-duration: 0.5s;
+  animation-name: primary-glow;
+}
+
+@keyframes primary-glow {
+  10% {
+    box-shadow: -2px -2px 8px rgba(158, 32, 217, 100%), 2px 2px 4px rgba(52, 226, 184, 100%);
+  }
 }
