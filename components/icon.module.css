@@ -1,8 +1,8 @@
 .icon {
   position: relative;
   background: currentColor;
-  width: 2em;
-  height: 2em;
+  width: 1em;
+  height: 1em;
   mask-size: contain;
   mask-position: center;
   mask-repeat: no-repeat;
