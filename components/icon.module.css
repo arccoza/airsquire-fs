@@ -1,0 +1,9 @@
+.icon {
+  position: relative;
+  background: currentColor;
+  width: 2em;
+  height: 2em;
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
