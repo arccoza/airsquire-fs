@@ -36,7 +36,12 @@
 
 .button:hover {
   background: #111111;
-  color: #34E2B8;
+  color: #71BCAA;
+}
+
+.button.tapped {
+  animation-duration: 0.5s;
+  animation-name: glow;
 }
 
 .button.toggled {
@@ -72,6 +77,13 @@
 .button.primary.tapped {
   animation-duration: 0.5s;
   animation-name: primary-glow;
+}
+
+@keyframes glow {
+  10% {
+    background: #222222;
+    color: #34E2B8;
+  }
 }
 
 @keyframes primary-glow {
