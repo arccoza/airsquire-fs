@@ -12,12 +12,11 @@ export default async function images(req, res) {
 async function getImages(req, res) {
   console.log(req.query)
   var p = new Promise((resolve, reject) => {
-    const stream = store.listObjectsV2('airsquire', `images/${req.query.s}`, true, '')
+    const stream = store.listObjectsV2('airsquire', `images/${req.query.q}`, true, req.query.s)
     // stream.on('error', function(err) { console.log(err), reject(err) } )
     stream.on('readable', () => {
       let item, items = []
       while (item = stream.read()) {
-        console.log(item)
         items.push(item)
       }
       resolve(items)
