@@ -5,12 +5,12 @@ import Image from 'next/image'
 export default function Gallery({ imageData=[] }) {
 	return (
 		<div className={styles.gallery}>
-      {imageData.map(({ id, title, url }) => (
-        <div key={id}>
+      {imageData.map(({ etag, name, url }) => (
+        <div key={etag}>
           <Image
             priority
             src={url}
-            alt={title}
+            alt={name}
             width={320}
             height={160}
           />
