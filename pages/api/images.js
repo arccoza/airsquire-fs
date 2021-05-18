@@ -32,6 +32,6 @@ async function putImages(req, res) {
     return Promise.resolve(res.status(400).json({ error: 'Bad json data' }))
   }
 
-  return store.presignedPutObject('airsquire', `/images/${req.body.name}`)
+  return store.presignedPutObject('airsquire', `images/${req.body.name}`)
     .then(url => res.json({url})).catch(err => res.json(err))
 }
