@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css'
 import Gallery from '../components/gallery'
 import client from '../lib/client'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
 
 const imgs = [
@@ -10,10 +10,9 @@ const imgs = [
   {etag:2, name: 'sea', url: '/images/sea.jpg'},
 ]
 
-export default function Home({ dispatch }) {
-  const [images, setImages] = useState([])
+export default function Home({ dispatch, state:{images} }) {
   useEffect(() => {
-    client.search().then(d => (console.log(d), setImages(d)))
+    client.search().then(d => (console.log(d), dispatch({type: 'images/set', payload: d})))
   }, [])
 
   return (
