@@ -28,12 +28,13 @@ export function Button({ primary='', group, isToggle=false, toggled:tgld=false, 
   )
 }
 
-export function UploadButton({ primary='', accept="*/*", files, children }) {
+export function UploadButton({ primary='', accept="*/*", onFiles, children }) {
   const [tapped, setTapped] = useState('')
   const inputRef = React.createRef()
 
   const handleFiles = ({ currentTarget: { files } }) => {
-    console.log(files)
+    // console.log(files)
+    onFiles && onFiles(files)
   }
 
   const glow = [
