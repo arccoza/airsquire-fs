@@ -1,4 +1,5 @@
 import store from '../../lib/store.js'
+import { urlPrefix, bucketName } from '../../lib/store-vars'
 
 
 export default async function images(req, res) {
@@ -12,7 +13,7 @@ export default async function images(req, res) {
 async function getImages(req, res) {
   console.log(req.query)
   var p = new Promise((resolve, reject) => {
-    const stream = store.listObjectsV2('airsquire', `images/${req.query.q}`, true, req.query.s)
+    const stream = store.listObjectsV2(bucketName, `images/${req.query.q}`, true, req.query.s)
     // stream.on('error', function(err) { console.log(err), reject(err) } )
     stream.on('readable', () => {
       let item, items = []
@@ -32,6 +33,6 @@ async function putImages(req, res) {
     return Promise.resolve(res.status(400).json({ error: 'Bad json data' }))
   }
 
-  return store.presignedPutObject('airsquire', `images/${req.body.name}`)
-    .then(url => res.json({url})).catch(err => res.json(err))
+  return store.presignedPutObject(bucketName, `images/${req.body.name}`)
+  .then(url => res.json({url})).catch(err => res.json(err))
 }
