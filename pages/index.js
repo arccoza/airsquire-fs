@@ -17,7 +17,7 @@ export default function Home({ dispatch, state:{images} }) {
 
   return (
     <main className={'content'}>
-      <Gallery imageData={images}/>
+      <Gallery imageData={images} onSelect={url => dispatch({type: 'image/select', payload: url})} />
     </main>
   )
 }
