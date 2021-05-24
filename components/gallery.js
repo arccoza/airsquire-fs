@@ -4,13 +4,13 @@ import Image from 'next/image'
 
 const blankImg = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4='
 
-export default function Gallery({ imageData=[] }) {
+export default function Gallery({ imageData=[], onSelect }) {
   var loader = {loader: (({ src }) => src)} // workaround for `blob:` urls
 
 	return (
 		<div className={styles.gallery}>
       {imageData.map(({ id=null, name, url='' }) => (
-        <div key={name} className={id ? '' : styles.placeholder} >
+        <div key={name} className={id ? '' : styles.placeholder} onClick={ev => onSelect && onSelect(name)} >
           <Image
             priority
             {...(!id ? loader : {})}

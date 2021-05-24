@@ -17,6 +17,7 @@
   margin-left: 0.24rem;
   border-radius: 0.24rem;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .gallery > *:first-child {
