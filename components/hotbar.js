@@ -15,7 +15,7 @@ export function Button({ primary='', disabled, group, isToggle=false, toggled:tg
   const [tapped, setTapped] = useState('')
   const [toggled, setToggled] = useState(tgld)
   console.log(toggled, tgld)
-  const className = `${styles.button} ${primary && styles.primary} ${tapped && styles.tapped} ${toggled && styles.toggled} ${disabled && styles.disabled}`
+  const className = `${styles.button} ${primary && styles.primary} ${tapped && styles.tapped} ${tgld && styles.toggled} ${disabled && styles.disabled}`
   const handleClick = ev => {
     !disabled && setTapped(true)
     !disabled && isToggle && setToggled(!toggled)
