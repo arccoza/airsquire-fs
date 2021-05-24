@@ -14,7 +14,7 @@ const initState = {
   },
   uploads: {},
   images: [],
-  image: null,
+  image: '',
 }
 
 const reducers = {
@@ -44,8 +44,13 @@ const reducers = {
   },
 
   'image/select'({ image }, action) {
+    // if (image == action.payload)
+    //   return { image }
+    this.handleSelect && this.handleSelect(action.payload)
     return {image: action.payload}
-  }
+  },
+
+  handleSelect: null,
 }
 
 const reducer = (state, action) => {
@@ -58,6 +63,8 @@ const reducer = (state, action) => {
 function App({ Component, pageProps }) {
   const [state, dispatch] = useReducer(reducer, initState)
   const router = useRouter()
+  const location = router.asPath
+  reducers.handleSelect = url => router.push(`/view/${url}`)
 
   return (
   	<>
@@ -69,9 +76,13 @@ function App({ Component, pageProps }) {
     </div>
   	<Component {...pageProps} dispatch={dispatch} state={state} />
     <HotBar>
-      <Button><Icon name={'search'}/></Button>
-      <Button><Icon name={'apps'}/></Button>
-      <Button><Icon name={'image'}/></Button>
+      <Button><Icon name={'search'} /></Button>
+      <Button toggled={location == '/'} onClick={ev => router.push(`/`)}>
+        <Icon name={'apps'} />
+      </Button>
+      <Button toggled={location.includes('/view')} onClick={ev => router.push(`/view/${state.image}`)} disabled={!state.image}>
+        <Icon name={'image'} />
+      </Button>
       <UploadButton primary={true} onFiles={files => uploadImages(router, files, dispatch)}>
         <Icon name={'chevron-up-outline'}/>
       </UploadButton>
