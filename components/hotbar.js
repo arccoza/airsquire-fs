@@ -11,14 +11,15 @@ export default function HotBar({ children }) {
 	)
 }
 
-export function Button({ primary='', group, isToggle=false, toggled:tgld=false, onToggle, onClick, children }) {
+export function Button({ primary='', disabled, group, isToggle=false, toggled:tgld=false, onToggle, onClick, children }) {
   const [tapped, setTapped] = useState('')
   const [toggled, setToggled] = useState(tgld)
-  const className = `${styles.button} ${primary && styles.primary} ${tapped && styles.tapped} ${toggled && styles.toggled}`
+  console.log(toggled, tgld)
+  const className = `${styles.button} ${primary && styles.primary} ${tapped && styles.tapped} ${toggled && styles.toggled} ${disabled && styles.disabled}`
   const handleClick = ev => {
-    setTapped(true)
-    isToggle && setToggled(!toggled)
-    onClick && onClick(ev)
+    !disabled && setTapped(true)
+    !disabled && isToggle && setToggled(!toggled)
+    !disabled && onClick && onClick(ev)
   }
 
   return (
