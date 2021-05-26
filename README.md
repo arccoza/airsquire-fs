@@ -1,1 +1,1 @@
-Built with Next.js, vercel and S3.
+Built with Next.js, React, Vercel and S3.
