@@ -6,9 +6,11 @@ import HotBar, {Button, UploadButton} from '../components/hotbar'
 import Icon from '../components/icon'
 import client from '../lib/client'
 import Head from 'next/head'
+import SearchBar from '../components/search-bar'
 
 
 const initState = {
+  search: false,
   nav: {
     current: null,
   },
@@ -18,6 +20,10 @@ const initState = {
 }
 
 const reducers = {
+  'search/visible'({ nav }, action) {
+    return {search: action.payload}
+  },
+
   'nav/goto'({ nav }, action) {
     return {nav: {
       ...state,
@@ -74,8 +80,11 @@ function App({ Component, pageProps }) {
   	 <Image src={'/images/q.png'} width={11} height={27} />
     </div>
   	<Component {...pageProps} dispatch={dispatch} state={state} />
+    <SearchBar visible={state.search} />
     <HotBar>
-      <Button><Icon name={'search'} /></Button>
+      <Button toggled={state.search} onClick={ev => dispatch({type: 'search/visible', payload: !state.search})}>
+        <Icon name={'search'} />
+      </Button>
       <Button toggled={location == '/'} onClick={ev => router.push(`/`)}>
         <Icon name={'apps'} />
       </Button>
