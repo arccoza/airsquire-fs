@@ -1,0 +1,32 @@
+.searchBar {
+  position: fixed;
+  bottom: 5.8rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0%;
+  visibility: hidden;
+  background-color: #fff;
+  padding: 0.2rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 2rem rgba(0,0,0,0.33);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.searchBar.visible {
+  visibility: visible;
+  opacity: 100%;
+  transform: translate(-50%, 0%);
+}
+
+.searchBar > input {
+  width: 10rem;
+  border: 1px solid #ccc;
+  border-radius: 0.6rem;
+  line-height: 1.6rem;
+  outline: none;
+  padding: 0.2rem 0.4rem;
+}
+
+.searchBar > input:focus {
+  border-color: #34E2B8;
+}
