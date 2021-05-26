@@ -10,10 +10,10 @@ const imgs = [
   {etag:2, name: 'sea', url: '/images/sea.jpg'},
 ]
 
-export default function Home({ dispatch, state:{images} }) {
+export default function Home({ dispatch, state:{images}, query='' }) {
   useEffect(() => {
-    client.search().then(d => (dispatch({type: 'images/set', payload: d})))
-  }, [])
+    client.search(query).then(d => (dispatch({type: 'images/set', payload: d})))
+  }, [query])
 
   return (
     <main className={'content'}>
