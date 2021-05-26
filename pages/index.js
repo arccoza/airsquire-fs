@@ -12,7 +12,7 @@ const imgs = [
 
 export default function Home({ dispatch, state:{images} }) {
   useEffect(() => {
-    client.search().then(d => (console.log(d), dispatch({type: 'images/set', payload: d})))
+    client.search().then(d => (dispatch({type: 'images/set', payload: d})))
   }, [])
 
   return (
