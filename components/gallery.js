@@ -18,6 +18,7 @@ export default function Gallery({ imageData=[], onSelect }) {
             alt={name}
             width={320}
             height={160}
+            title={name}
           />
         </div>
       ))}
