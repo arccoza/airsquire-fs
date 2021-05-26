@@ -14,7 +14,6 @@ export default function HotBar({ children }) {
 export function Button({ primary='', disabled, group, isToggle=false, toggled:tgld=false, onToggle, onClick, children }) {
   const [tapped, setTapped] = useState('')
   const [toggled, setToggled] = useState(tgld)
-  console.log(toggled, tgld)
   const className = `${styles.button} ${primary && styles.primary} ${tapped && styles.tapped} ${tgld && styles.toggled} ${disabled && styles.disabled}`
   const handleClick = ev => {
     !disabled && setTapped(true)
@@ -34,7 +33,6 @@ export function UploadButton({ primary='', accept="*/*", onFiles, children }) {
   const inputRef = React.createRef()
 
   const handleFiles = ({ currentTarget: { files } }) => {
-    // console.log(files)
     onFiles && onFiles(files)
   }
 
