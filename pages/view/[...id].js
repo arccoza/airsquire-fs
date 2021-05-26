@@ -6,7 +6,7 @@ import { urlPrefix } from '../../lib/store-vars'
 export default function View() {
   const router = useRouter()
   const id = router.query.id
-  const url = id && (urlPrefix + id.join('/'))
+  var url = id && (urlPrefix + decodeURIComponent(id.join('/')))
 
   return (
     <Panolens image={url}></Panolens>

@@ -25,7 +25,6 @@ const reducers = {
   },
 
   'uploads/add'({ uploads }, action) {
-    console.log(uploads, action.payload)
     return {uploads: {
       ...uploads,
       ...action.payload,
@@ -64,7 +63,7 @@ function App({ Component, pageProps }) {
   const [state, dispatch] = useReducer(reducer, initState)
   const router = useRouter()
   const location = router.asPath
-  reducers.handleSelect = url => router.push(`/view/${url}`)
+  reducers.handleSelect = url => router.push(`/view/${encodeURIComponent(url)}`)
 
   return (
   	<>
