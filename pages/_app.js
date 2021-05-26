@@ -91,7 +91,7 @@ function App({ Component, pageProps }) {
       <Button toggled={location.includes('/view')} onClick={ev => router.push(`/view/${state.image}`)} disabled={!state.image}>
         <Icon name={'image'} />
       </Button>
-      <UploadButton primary={true} onFiles={files => uploadImages(router, files, dispatch)}>
+      <UploadButton primary={true} accept={'image/*'} onFiles={files => uploadImages(router, files, dispatch)}>
         <Icon name={'chevron-up-outline'}/>
       </UploadButton>
     </HotBar>
