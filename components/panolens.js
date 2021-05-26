@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
+import styles from './panolens.module.css'
+
 var panolens
 
 
@@ -18,7 +20,6 @@ export default function Panolens({ image }) {
   // console.log('panolens', panolens)
 
   useEffect(async () => {
-    console.log('useEffect', panorama)
     if (panorama == null) {
       var PANOLENS = (await import('/node_modules/panolens/build/panolens.module.js'))
       const p = new PANOLENS.ImagePanorama(image)
@@ -38,5 +39,5 @@ export default function Panolens({ image }) {
     }
   }, [])
 
-  return <div id='panolens' ref={panoRef} style={{width: '100vw', height: '100vh', overflow: 'hidden'}}></div>
+  return <div id='panolens' className={styles.panolens} ref={panoRef} style={{width: '100vw', height: '100vh', overflow: 'hidden'}}></div>
 }
